@@ -5,8 +5,13 @@ public class Task05 {
     public static String solution(int x) {
 
         // TODO напишите здесь свою корректную реализацию этого метода, вместо сеществующей
+        String num = String.valueOf(x);
+        for (int i = 0; i < num.length(); i++){
+            if (num.charAt(i)%2 == 1)
+                return "FALSE";
+        }
 
-        return "FALSE";
+        return "TRUE";
     }
 
     public static void main(String[] args) {

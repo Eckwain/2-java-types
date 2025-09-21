@@ -1,4 +1,6 @@
 package com.example.task10;
+import static java.lang.Math.abs;
+
 
 public class Task10 {
 
@@ -7,8 +9,17 @@ public class Task10 {
         // TODO корректно сравнивать два значения типа float с заданной пользователем точностью (параметр - количество знаков после запятой).
         // Функция должна корректно обрабатывать ситуацию со сравнением значений бесконечности.
         // Функция должна считать значения «не число» NaN (например 0.0/0.0) равными между собой.
-        
-        return a == b;
+        if (Float.isInfinite(a) && Float.isInfinite(b)) {
+            return a == b; // Обе бесконечности равны, если одного знака.
+        }
+        if (Float.isNaN(a) && Float.isNaN(b)) {
+            return true; // NaN считается равным NaN.
+        }
+        if (Float.isNaN(a) || Float.isNaN(b) || Float.isInfinite(a) || Float.isInfinite(b)) {
+            return false; // NaN не равен числу или бесконечности, число не равно бесконечности.
+        }
+        double epsilon = Math.pow(10, -precision);
+        return abs(a - b) < epsilon;
 
     }
 

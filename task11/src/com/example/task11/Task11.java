@@ -4,13 +4,12 @@ public class Task11 {
 
     public static float benefit(float sum, float percent) {
 
-        // TODO исправьте функцию, чтобы избежать накопления ошибки
+        // Вычисляем итоговую сумму по формуле сложных процентов
+        // A = P * (1 + r)^n
+        // где A - итоговая сумма, P - начальная сумма, r - процентная ставка, n - количество периодов
 
-        // Считаем проценты за год
-        for (int i = 1; i <= 12; i++) {
-            sum += sum * percent;
-        }
-        return sum;
+        // В нашем случае n = 12 (12 месяцев)
+        return (float) (sum * Math.pow((double)1.0f + percent, 12));
     }
 
     public static void main(String[] args) {
